@@ -1,9 +1,18 @@
+#Include <headers>
+#Include <elevate-admin>
+
 toggle = true
 ^!n::
   toggle := !toggle
 
+  elevate_admin()
+
+  command := "-NetAdapterBinding -Name '*' -ComponentID ms_tcpip6"
   if toggle
-    Run nvspbind /d "Ethernet 2" ms_tcpip6
+    command := "Enable" . command
   Else
-    Run nvspbind /e "Ethernet 2" ms_tcpip6
+    command := "Disable" . command
+  
+  Run, powershell -Command %command%
+  MsgBox % toggle ? "Enabled!" : "Disabled"
 return
