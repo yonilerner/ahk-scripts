@@ -2,7 +2,6 @@
 
 SetKeyDelay -1
 
-
 ; Win-> :: End
 #Right::
    SendInput {End}
