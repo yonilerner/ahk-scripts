@@ -24,13 +24,13 @@ return
 
 ; Win+Delete :: Delete Line
 #BackSpace::
-   SetTitleMatchMode, 2
-   isWebstorm := WinActive("WebStorm")
-   isIntelliJ := WinActive("IntelliJ")
-   isClion := WinActive("CLion")
-   SetTitleMatchMode 1
-   if isWebstorm or isClion or isIntelliJ
-      return
+   ; SetTitleMatchMode, 2
+   ; isWebstorm := WinActive("WebStorm")
+   ; isIntelliJ := WinActive("IntelliJ")
+   ; isClion := WinActive("CLion")
+   ; SetTitleMatchMode 1
+   ; if isWebstorm or isClion or isIntelliJ
+   ;    return
 
    SendInput {End} ; Skip to end of line
    ; Select all the way to beginning of line, including whitespace,
